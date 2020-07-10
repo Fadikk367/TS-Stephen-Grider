@@ -1,10 +1,13 @@
-// variables
 // annotation --> ": <type>"
 let apples: number = 5;
 let speed: string = 'fast';
 let hasName: boolean = true;
 let nothingMuch: null = null;
 let nothing: undefined = undefined;
+
+// inferrence:
+let plums = 12; // plums: number 
+let words = ['word1', 'word2', 'word3'] // words: string[]
 
 // Built in objects
 let date: Date = new Date();
@@ -37,20 +40,3 @@ let point: { x: number, y: number } = {
   x: 10,
   y: 20
 };
-
-// Function
-
-const logNumber: (i: number) => void = (i: number): void => {
-  console.log(i);
-}
-
-
-// WHEN TO USE ANNOTATIONS?
-// 1) Function that returns the 'any' type
-interface Point2D {
-  x: number;
-  y: number;
-}
-const json = '{"x": 10, "z": "dffdf"}';
-const coords = JSON.parse(json) as Point2D;
-console.log(coords);

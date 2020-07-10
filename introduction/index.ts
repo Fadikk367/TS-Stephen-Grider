@@ -14,19 +14,10 @@ axios.get(url).then(response => {
   logTodo(todo);
 });
 
-const arr = [10,11,12];
-for (const el of arr)
-  console.log(el);
-
-  const logTodo = (todo: Todo) => {
-    for (const key in todo)
-      console.log(todo[key]);
-    console.log(`
+const logTodo = (todo: Todo) => {
+  console.log(`
     The todo with ID: ${todo.id}
     Has a title of: ${todo.title}
     Is it finished? ${todo.completed}
-  `); 
-  }
-  
-  const date = Date.now();
-  console.log(Date.UTC());
+  `);
+}
