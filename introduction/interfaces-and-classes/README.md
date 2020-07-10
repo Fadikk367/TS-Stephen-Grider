@@ -21,3 +21,5 @@
     printSummary(someDrink);
 
 > If it comes to interfaces implemented by a class it is some kind of contract - if class wants to implement specific interface it have to implement methods specified in the interface and must contain properties defined in it.
+
+## Classes
