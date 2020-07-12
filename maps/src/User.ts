@@ -1,6 +1,7 @@
 import faker from 'faker';
+import { Locatable } from './CustomMap';
 
-export class User {
+export class User implements Locatable {
   name: string;
   location: {
     lat: number;
@@ -13,5 +14,13 @@ export class User {
       lat: parseFloat(faker.address.latitude()),
       lng: parseFloat(faker.address.longitude()),
     }
+  }
+
+  getMarkerContent(): string {
+    return `
+      <div>
+        <h2>Hey there, My name is ${this.name}<h2>
+      </div>
+    `;
   }
 }
