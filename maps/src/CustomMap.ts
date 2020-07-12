@@ -6,6 +6,7 @@ export interface Locatable {
   getMarkerContent(): string;
 }
 
+
 export class CustomMap {
   private map: google.maps.Map;
 
