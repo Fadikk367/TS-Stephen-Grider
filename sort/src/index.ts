@@ -1,6 +1,29 @@
-interface FF {
-  a: number;
-  b: string;
-}
+import { Sorter } from './Sorter';
+import { Numbers } from './Numbers';
+import { Characters } from './Characters';
+import { LinkedList } from './LinkedList/LinkedList';
 
-console.log('hererer');
+
+const numCollection = new Numbers([10, -4, 1, -3, 7]);
+const numSorter = new Sorter(numCollection);
+numSorter.sort();
+console.log(numCollection.data);
+
+const charCollection = new Characters('Xaayb');
+const charSorter = new Sorter(charCollection);
+charSorter.sort();
+console.log(charCollection.data);
+
+const list = new LinkedList();
+list.print();
+
+list.add(4);
+list.add(0);
+list.add(-1);
+list.add(7);
+list.add(2);
+
+list.print();
+const listSorter = new Sorter(list);
+listSorter.sort();
+list.print();
