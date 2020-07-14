@@ -1,9 +1,8 @@
+import { Sorter, Sortable } from '../Sorter';
 import { Node } from './Node';
 
-export class LinkedList {
+export class LinkedList extends Sorter implements Sortable {
   head: Node | null = null;
-
-  constructor() {}
 
   get length(): number {
     if (!this.head) return 0;

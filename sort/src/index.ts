@@ -5,13 +5,13 @@ import { LinkedList } from './LinkedList/LinkedList';
 
 
 const numCollection = new Numbers([10, -4, 1, -3, 7]);
-const numSorter = new Sorter(numCollection);
-numSorter.sort();
+// const numSorter = new Sorter(numCollection);
+numCollection.sort();
 console.log(numCollection.data);
 
 const charCollection = new Characters('Xaayb');
-const charSorter = new Sorter(charCollection);
-charSorter.sort();
+// const charSorter = new Sorter(charCollection);
+charCollection.sort();
 console.log(charCollection.data);
 
 const list = new LinkedList();
@@ -24,6 +24,6 @@ list.add(7);
 list.add(2);
 
 list.print();
-const listSorter = new Sorter(list);
-listSorter.sort();
+// const listSorter = new Sorter(list);
+list.sort();
 list.print();
