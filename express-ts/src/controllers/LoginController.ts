@@ -1,5 +1,10 @@
-import { Request, Response } from 'express';
-import { Get, Controller } from './decorators';
+import { Request, Response, NextFunction } from 'express';
+import { Get, Controller, Post, ValidateBody, Use } from './decorators';
+
+function logger(req: Request, res: Response, next: NextFunction): void {
+  console.log(`GET - [${new Date()}] - User <${req.body.email}> login attempt`);
+  next();
+}
 
 @Controller('/auth')
 class LoginController {
@@ -19,5 +24,25 @@ class LoginController {
         <button>SUBMIT</button>
       </form>
     `);
+  }
+
+  @Post('/login')
+  @ValidateBody('email', 'password')
+  @Use(logger)
+  postLogin(req: Request, res: Response): void {
+    const { email, password } = req.body;
+
+    if (email && password && email === 'hi@hi.com' && password === 'password') {
+      req.session = { loggedIn: true };
+      res.redirect('/');
+    } else {  
+      res.send('Invalid email or password!');
+    }
+  }
+
+  @Get('/logout')
+  getLogout(req: Request, res: Response) {
+    req.session = null;
+    res.redirect('/');
   }
 }
