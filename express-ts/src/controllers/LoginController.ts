@@ -30,7 +30,7 @@ class LoginController {
   @ValidateBody('email', 'password')
   @Use(logger)
   postLogin(req: Request, res: Response): void {
-    const { email, password } = req.body;
+    const { email, password }: { email: string, password: string} = req.body;
 
     if (email && password && email === 'hi@hi.com' && password === 'password') {
       req.session = { loggedIn: true };
