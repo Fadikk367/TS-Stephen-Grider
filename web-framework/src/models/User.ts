@@ -1,12 +1,18 @@
-import axios, { AxiosResponse } from 'axios';
+import { Event } from './Event'; 
+import { Sync } from './Sync';
 
-interface UserProps {
+export interface UserProps {
   id?: number,
   name?: string,
   age?: number
 }
 
+const rootUrl = 'http://localhost:3000/users';
+
 export class User {
+  public events: Event = new Event();
+  public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl)
+
   constructor(private data: UserProps) {}
 
   get(propName: string): (string | number) {
@@ -17,19 +23,7 @@ export class User {
     Object.assign(this.data, update);
   }
 
-  fetch(): void {
-    axios.get(`http://localhost:3000/users/${this.get('id')}`)
-      .then((response: AxiosResponse): void => {
-        this.set(response.data);
-      });
-  }
 
-  save(): void {
-    const id = this.get('id') as number;
-    if (id) {
-      axios.put(`http://localhost:3000/users/${id}`, this.data)
-    } else {
-      axios.post(`http://localhost:3000/users`, this.data);
-    }
-  }
+
+
 }
