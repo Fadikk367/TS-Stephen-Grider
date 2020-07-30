@@ -1,9 +1,9 @@
 import { User } from './models/User';
 
-const user = new User({ id: 1 });
+const user = User.create({ id: 1, name: 'YEYY', age: 11111 });
 
-user.events.on('change', () => {
-    console.log(user);
+user.on('change', () => {
+    console.log(user, 'CHANGED');
 });
 
 user.fetch();
