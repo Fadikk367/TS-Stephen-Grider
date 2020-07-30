@@ -1,9 +1,8 @@
-import { User } from './models/User';
+import axios, { AxiosResponse } from 'axios';
+import { Collection } from './models/Collection';
+import { User, UserProps } from './models/User';
 
-const user = User.create({ id: 1, name: 'YEYY', age: 11111 });
+const collection = User.createUserCollection();
+collection.fetch();
 
-user.on('change', () => {
-    console.log(user, 'CHANGED');
-});
-
-user.fetch();
+console.log(collection);
