@@ -27,8 +27,8 @@ export class Collection<T, U> {
           const model = this.deserialize(modelData);
           this.models.push(model);
         });
-      });
-    
+
       this.trigger('change');
+    });
   }
 }
