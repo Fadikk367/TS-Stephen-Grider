@@ -8,7 +8,7 @@
 
 > in both JS & TS object keys are strings!
 
-> Generic constrains limits types that our type parameter could be!
+> Generic constraint limits types that our type parameter could be!
 
     interface HasId {
         id: number;
